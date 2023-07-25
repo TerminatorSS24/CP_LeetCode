@@ -1,2 +1,3 @@
 # CP_LeetCode
-Solutions of programming question given on LeetCode, (easy ✅, medium ✅, hard ✅)
+Solutions to programming questions given on LeetCode, (easy ✅, medium ✅, hard ✅)
+Here is my LeetCode account: https://leetcode.com/TerminatorSS24/
