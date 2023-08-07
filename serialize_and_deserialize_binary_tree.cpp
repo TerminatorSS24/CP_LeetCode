@@ -1,0 +1,58 @@
+// Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
+
+// Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
+
+// Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
+
+ 
+
+// Example 1:
+
+
+// Input: root = [1,2,3,null,null,4,5]
+// Output: [1,2,3,null,null,4,5]
+// Example 2:
+
+// Input: root = []
+// Output: []
+#include<iostream>
+#include<sstream>
+#include<string>
+using namespace std;
+struct TreeNode {
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+};
+class Codec {
+public:
+
+    string serialize(TreeNode* root) 
+    {
+        return !root ? " null" : " " + to_string(root->val) + serialize(root->left) + serialize(root->right);
+    }
+	
+    TreeNode* deserialize(string data) 
+    {
+        istringstream ss(data);
+        return buildTree(ss);
+    }
+    
+private:
+    
+    TreeNode* buildTree(istringstream& ss)
+    {
+        string s;
+        ss >> s;
+        
+        if (s == "null")
+			return NULL;
+        
+        TreeNode* node = new TreeNode(stoi(s));
+        node->left = buildTree(ss);
+        node->right = buildTree(ss);
+            
+        return node;
+    }
+};
