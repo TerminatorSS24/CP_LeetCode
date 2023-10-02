@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/gamer/Documents/GitHub/CP_LeetCode",
-      "program": "c:/Users/gamer/Documents/GitHub/CP_LeetCode/build/Debug/outDebug",
+      "cwd": "c:/Users/gamer/OneDrive/Documents/CP_LeetCode",
+      "program": "c:/Users/gamer/OneDrive/Documents/CP_LeetCode/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
