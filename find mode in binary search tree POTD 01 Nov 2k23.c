@@ -11,6 +11,7 @@ Both the left and right subtrees must also be binary search trees.
 
 Example 1:
 
+image: https://assets.leetcode.com/uploads/2021/03/11/mode-tree.jpg
 
 Input: root = [1,null,2,2]
 Output: [2]
