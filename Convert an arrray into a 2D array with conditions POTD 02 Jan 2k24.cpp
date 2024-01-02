@@ -28,3 +28,23 @@ Explanation: All elements of the array are distinct, so we can keep all of them 
 */
 #include<bits/stdc++.h>
 using namespace std;
+class Solution {
+public:
+    vector<vector<int>> findMatrix(vector<int>& nums) {
+        unordered_map<int, int> map;
+        for(auto i : nums)
+            map[i]++;
+        vector<vector<int>> arr2D;
+        while(map.size()) {
+            vector<int> vec;
+            for(auto i : map) 
+                vec.push_back(i.first);
+            for(auto i : vec) {
+                if(!--map[i]) 
+                    map.erase(i);
+            }
+            arr2D.push_back(vec);
+        }
+        return arr2D;
+    }
+};
