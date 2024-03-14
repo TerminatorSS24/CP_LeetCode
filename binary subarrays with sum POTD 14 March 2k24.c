@@ -25,19 +25,27 @@ Output: 15
 
 int numSubarraysWithSum(int *nums, int numsSize, int goal)
 {
-    int *map = (int *)calloc(numsSize + 1, sizeof(int));
-    map[0] = 1;
-    int sum = 0;
-    int count = 0;
+    int ans = 0, *freq = (int *)calloc(1, sizeof(int) * (numsSize + 1));
 
-    for (int i = 0; i < numsSize; i++)
+    for (int i = 0, sum = 0; i < numsSize; i++)
     {
+
         sum += nums[i];
-        int rem = sum - goal;
-        count += map[rem];
-        map[sum]++;
+
+        if (sum == goal)
+        {
+            ans++;
+        }
+
+        if (sum >= goal)
+        {
+            ans += freq[sum - goal];
+        }
+
+        freq[sum]++;
     }
 
-    free(map);
-    return count;
+    free(freq);
+
+    return ans;
 }
